@@ -9,3 +9,8 @@ h1{
     font-size: large;
     font-weight: bold;
 }
+p{
+    background-color: black;
+    color: bisque;
+    font-size: large;
+}
