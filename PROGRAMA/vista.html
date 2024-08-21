@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costo de Impresión</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Preferencias de Impresión</h1>
+
+        <!-- Campo para seleccionar el archivo -->
+        <div class="file-select">
+            <label for="fileInput">Selecciona un archivo (imagen o PDF):</label>
+            <input type="file" id="fileInput" accept="image/*,.pdf" onchange="procesarArchivo()">
+        </div>
+
+        <!-- Vista previa del documento -->
+        <div class="preview-container">
+            <canvas id="previewCanvas" style="display:none;"></canvas>
+            <img id="imagePreview" src="" alt="Vista previa" style="max-width: 300px;">
+        </div>
+
+        <!-- Opción para elegir el tipo de impresión -->
+        <div class="print-options">
+            <label for="printMode">Selecciona el modo de impresión:</label>
+            <select id="printMode">
+                <option value="color">Color</option>
+                <option value="bn">Blanco y Negro</option>
+            </select>
+        </div>
+
+        <!-- Opción para elegir el tamaño de la hoja -->
+        <div class="paper-size">
+            <label for="paperSize">Selecciona el tamaño del papel:</label>
+            <select id="paperSize">
+                <option value="a4">A4</option>
+                <option value="oficio">Oficio</option>
+            </select>
+        </div>
+
+        <!-- Campo para el número de copias -->
+        <div class="copies">
+            <label for="copies">Número de copias:</label>
+            <input type="number" id="copies" value="1" min="1">
+        </div>
+
+        <div class="footer">
+            <p>Papel: <span id="tipo-papel">Oficio</span></p>
+            <p>Total: <span id="total">$0.00</span></p>
+            <button class="btn-imprimir" onclick="imprimirVistaPrevia()">Imprimir</button>
+            <button class="btn-cancelar" onclick="cancelar()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="logica.js"></script>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script> <!-- Cargar PDF.js -->
+</body>
+</html>
+    
